@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "builderstempabf",
+    "slug": "builderstempabf",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
