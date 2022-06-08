@@ -18,6 +18,12 @@
 	<string>????</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>When in use permissions</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>always permissions</string>
+	<key>NSLocationAlwaysAndWhenInUsageDescription</key>
+	<string>Always and in usage permissions</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
