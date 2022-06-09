@@ -18,8 +18,11 @@ const Home = ({ data }: any) => {
   };
 
   useEffect(() => {
+    if(data?.coords?.latitude !== undefined){
     GetDataWeather(data.coords.latitude, data.coords.longitude);
-  }, []);
+
+    }
+  }, [data]);
 
   return (
     <>
