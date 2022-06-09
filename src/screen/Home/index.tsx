@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
-
-import { Container } from "./styled";
-import { ILocation } from "./types";
+import { Container, ContainerButton } from "./styled";
 import { WeatherData } from "../../services/GetData";
 import Header from "../../components/Header";
 import Main from "../../components/Main";
-import { Text } from "react-native";
 import Loading from "../../components/Loading";
+import Button from "../../components/Button";
 
 const Home = ({ data }: any) => {
   const [weather, setWeather] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(false) 
 
   const GetDataWeather = async (lat: number, long: number ) => {
+    setLoading(true);
     const response = await WeatherData(lat, long);
-
     setWeather(response);
+    setLoading(false)
   };
 
   useEffect(() => {
@@ -30,6 +30,9 @@ const Home = ({ data }: any) => {
     <Container>
       <Header date={data.timestamp} dataHeader={weather} />
       <Main data={weather}  />
+      <ContainerButton>
+        <Button Loading={loading} onPress={() => GetDataWeather(data.coords.latitude, data.coords.longitude) } />
+      </ContainerButton>
     </Container> 
     : 
     <Loading /> }
