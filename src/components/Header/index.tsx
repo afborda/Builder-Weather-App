@@ -12,7 +12,12 @@ import {
 } from "./styled";
 import { DateFormat } from "../../global/utils/DateFormat";
 
-const Header = ({ date, dataHeader }) => {
+interface IHeader {
+  dataHeader: object;
+  date: string;
+}
+
+const Header = ({ date, dataHeader }: IHeader) => {
   return (
     <Container>
       <ViewSecundary>

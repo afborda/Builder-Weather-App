@@ -17,7 +17,11 @@ import { FirstCapitalWord } from "../../global/utils/ToolsString";
 import Lottie from "../Lottie";
 import Sol from "../../assets/animations/4801-weather-partly-shower.json";
 
-const Main = ({ data }: any) => {
+interface IMain {
+  data: object;
+}
+
+const Main = ({ data }: IMain) => {
   return (
     <Container>
       <ContainerLottie>

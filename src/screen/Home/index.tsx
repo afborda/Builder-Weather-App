@@ -6,19 +6,19 @@ import { WeatherData } from "../../services/GetData";
 import Header from "../../components/Header";
 import Main from "../../components/Main";
 import { Text } from "react-native";
+import Loading from "../../components/Loading";
 
 const Home = ({ data }: any) => {
   const [weather, setWeather] = useState<any>(null);
 
-  const GetDataWeather = async (lat: string, long: string) => {
+  const GetDataWeather = async (lat: number, long: number ) => {
     const response = await WeatherData(lat, long);
 
     setWeather(response);
   };
 
   useEffect(() => {
-    GetDataWeather("-30.033056", "-51.230000");
-    console.log("locationData", data);
+    GetDataWeather(data.coords.latitude, data.coords.longitude);
   }, []);
 
   return (
@@ -29,7 +29,7 @@ const Home = ({ data }: any) => {
       <Main data={weather}  />
     </Container> 
     : 
-    <Text>Aguarde</Text> }
+    <Loading /> }
     </>
     
   );
