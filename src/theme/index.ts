@@ -6,7 +6,9 @@ export default {
     WHITE: "#FFFFFF",
     BLACK: "#000000",
     GRAY: "#778da9",
-    LIGHT_GRAY: "#e0e1dd"
+    LIGHT_GRAY: "#e0e1dd",
+    BALL: "#E2C029",
+    WHITEOPACITY: "#FFFFFF80"
   },
   FONTS: {
     TITLE: "Roboto_700Bold",

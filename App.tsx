@@ -12,9 +12,10 @@ import { ThemeProvider } from "styled-components/native";
 import theme from "./src/theme";
 import * as Location from "expo-location";
 import Home from "./src/screen/Home";
+import { Text } from "react-native";
 
 export default function App() {
-  const [location, setLocation] = useState<any>(null);
+  const [locationData, setLocation] = useState<any>({});
   const [errorMsg, setErrorMsg] = useState<any>(null);
 
   const [fontsLoaded] = useFonts({
@@ -25,26 +26,33 @@ export default function App() {
     Roboto_700Bold
   });
 
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setErrorMsg("Permission to access location was denied");
-        return;
-      }
+  const GetLocalization = async () => {
+    const { status } = await Location.requestForegroundPermissionsAsync();
+    if (status !== "granted") {
+      setErrorMsg("Permission to access location was denied");
+      return;
+    }
 
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-    })();
+    const location = await Location.getCurrentPositionAsync({});
+    console.log(location);
+
+    setLocation(location);
+    console.log("locationData>>", location);
+  };
+
+  useEffect(() => {
+    GetLocalization();
   }, []);
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
+  if (!fontsLoaded && locationData !== {}) {
+    return null;
   }
 
   return (
     <ThemeProvider theme={theme}>
-      <Home data={location} />
+      {locationData !== {}
+        ? <Home data={locationData} />
+        : <Text>Aguarde</Text>}
     </ThemeProvider>
   );
 }

@@ -1,13 +1,46 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
-//import { Container } from './styled';
+import {
+  Container,
+  TextPrimary,
+  TextSecundary,
+  ViewSecundary,
+  ButtonContainer,
+  ViewButton,
+  ContainerIconPin
+} from "./styled";
+import { DateFormat } from "../../global/utils/DateFormat";
 
-const Header = () => {
+const Header = ({ date, dataHeader }) => {
   return (
-    <View>
-      <Text>Abner Fonseca</Text>
-    </View>
+    <Container>
+      <ViewSecundary>
+        <TextPrimary>
+          {DateFormat(date)}
+        </TextPrimary>
+        <ContainerIconPin>
+          <MaterialIcons name="location-pin" size={24} color="white" />
+          <TextSecundary>
+            {dataHeader.name}, {dataHeader.sys.country}
+          </TextSecundary>
+        </ContainerIconPin>
+      </ViewSecundary>
+      <ViewButton>
+        <ButtonContainer>
+          <MaterialCommunityIcons
+            name="white-balance-sunny"
+            size={24}
+            color="yellow"
+          />
+          <MaterialCommunityIcons
+            name="moon-waning-crescent"
+            size={24}
+            color="white"
+          />
+        </ButtonContainer>
+      </ViewButton>
+    </Container>
   );
 };
 

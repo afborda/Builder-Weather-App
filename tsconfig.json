@@ -8,7 +8,6 @@
             "@components/*": ["./components/*"],
             "@constants/*": ["./constants/*"],
             "@services/*": ["./services/*"],
-            "@utils/*": ["./global/utils/*"],
             "@assets/*": ["./assets/*"],
             "@screens/*": ["./src/screen"],
             "@navigation/*": ["./navigation/*"],
