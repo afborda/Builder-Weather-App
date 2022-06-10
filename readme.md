@@ -29,6 +29,7 @@ Open Weather Map.
 
 ## 📁 Estrutura de pastas:
  -`assets` (Dentro de assets gosto de dividir em pastas as imagens, gifs, animações)
+ 
     - `animations`
     
 - `components` (Contem todos os componentes do sistema)
