@@ -1,4 +1,6 @@
-![Template Alura](https://github.com/afborda/Builder-Weather-App/blob/master/src/assets/img/image%202.png)
+## Resultado do Desafio
+
+![Abner Fonseca](https://github.com/afborda/Builder-Weather-App/blob/master/src/assets/img/image%202.png)
 
 
 ## Desafio proposto:
@@ -31,15 +33,13 @@ Open Weather Map.
     
 - `components` (Contem todos os componentes do sistema)
 
- - `global` (aqui se encontra pastas globais como traduçãoi18n), estilos e etc.)
+- `global` (aqui se encontra pastas globais como traduçãoi18n), estilos e etc.)
 
 - `utils` (Está pasta onde gosto de deixar arquivos para funções  genéricas especificas como Format de data, arredondamento dde númerose etc.)
 
 - `navigation` (Aqui vai se encontrar todas as rotas do app tanto autenticadas ou sem autenticação)
 
- - `screen` (aqui vai se encontrar todas a telas desenvolvidas na aplicação )
-
-
+- `screen` (aqui vai se encontrar todas a telas desenvolvidas na aplicação )
 
 - `services` ( aqui se encontra todas as requisiçõesfeitas na aplicação dentro dela gosto de dividir de algumas formas como contexto, tipo de requisição, facilitando uma pessoa mais iniciantes entender o projeto e deixando claro onde se encontra tudo)
 
