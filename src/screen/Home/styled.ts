@@ -5,4 +5,7 @@ export const Container = styled.SafeAreaView`
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 `;
 
-export const ContainerButton = styled.View`align-items: center;`;
+export const ContainerButton = styled.View`
+  margin-top: 30px;
+  align-items: center;
+`;

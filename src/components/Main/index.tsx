@@ -15,8 +15,6 @@ import {
 import { AroundNumber } from "../../global/utils/ToolsNumber";
 import { FirstCapitalWord } from "../../global/utils/ToolsString";
 import Lottie from "../Lottie";
-import Intro from "../../assets/animations/loading_Intro.json";
-import { AnimationSalaect } from "../../global/utils/SelectAnimationsWeather";
 
 import Thunderstorm from "../../assets/animations/Thunderstorm.json";
 import Drizzle from "../../assets/animations/Drizzle.json";
@@ -24,6 +22,7 @@ import Rain from "../../assets/animations/Drizzle.json";
 import Snow from "../../assets/animations/Snow.json";
 import Clear from "../../assets/animations/Clear.json";
 import Clouds from "../../assets/animations/Cloud.json";
+import { Platform } from "react-native";
 interface IMain {
   data: {
     weather: Array<any>;
@@ -65,27 +64,29 @@ const Main = ({ data }: IMain) => {
   return (
     <Container>
       <ContainerLottie>
-        <Lottie autoPlay width={200} height={220} img={img} />
+        {Platform.OS === "ios"
+          ? <Lottie autoPlay width={200} height={220} img={img} />
+          : <Lottie autoPlay width={150} height={150} img={img} />}
       </ContainerLottie>
       <ContainerText>
-        <TextPrimary>
+        <TextPrimary testID="text_description">
           {FirstCapitalWord(data.weather[0].description)}
         </TextPrimary>
         <ContainerTemperature>
-          <Temperature>
+          <Temperature testID="text_temp">
             {AroundNumber(data.main.temp)}
           </Temperature>
           <Ball />
         </ContainerTemperature>
         <TemperatureMaxMin>
           <Temp>
-            <TempValue>
+            <TempValue testID="text_temp_min">
               Min {AroundNumber(data.main.temp_min)}
             </TempValue>
             <FontAwesome5 name="temperature-low" size={24} color="#034078" />
           </Temp>
           <Temp>
-            <TempValue>
+            <TempValue testID="text_temp_min">
               Max {AroundNumber(data.main.temp_max)}
             </TempValue>
             <FontAwesome5 name="temperature-high" size={24} color="#E2C029" />
