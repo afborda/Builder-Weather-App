@@ -34,6 +34,8 @@ export default function App() {
     }
 
     const location = await Location.getCurrentPositionAsync({});
+
+    setLocation(location);
   };
 
   useEffect(() => {
