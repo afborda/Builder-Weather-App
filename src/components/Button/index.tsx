@@ -11,9 +11,11 @@ interface IButton {
 const Button = ({ onPress, Loading }: IButton) => {
   return (
     <ButtonType onPress={onPress}>
-      {Loading
-        ? <Lottie autoPlay={true} height={200} width={200} img={Sun} />
-        : <TextButton>Atualizar</TextButton>}
+      {Loading ? (
+        <Lottie autoPlay={true} height={200} width={200} img={Sun} />
+      ) : (
+        <TextButton>Atualizar</TextButton>
+      )}
     </ButtonType>
   );
 };

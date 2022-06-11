@@ -34,10 +34,6 @@ export default function App() {
     }
 
     const location = await Location.getCurrentPositionAsync({});
-    console.log(location);
-
-    setLocation(location);
-    console.log("locationData>>", location);
   };
 
   useEffect(() => {
@@ -50,9 +46,11 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {locationData !== {}
-        ? <Home data={locationData} />
-        : <Text>Aguarde</Text>}
+      {locationData !== {} ? (
+        <Home data={locationData} />
+      ) : (
+        <Text>Aguarde</Text>
+      )}
     </ThemeProvider>
   );
 }

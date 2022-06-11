@@ -64,9 +64,11 @@ const Main = ({ data }: IMain) => {
   return (
     <Container>
       <ContainerLottie>
-        {Platform.OS === "ios"
-          ? <Lottie autoPlay width={200} height={220} img={img} />
-          : <Lottie autoPlay width={150} height={150} img={img} />}
+        {Platform.OS === "ios" ? (
+          <Lottie autoPlay width={200} height={220} img={img} />
+        ) : (
+          <Lottie autoPlay width={150} height={150} img={img} />
+        )}
       </ContainerLottie>
       <ContainerText>
         <TextPrimary testID="text_description">

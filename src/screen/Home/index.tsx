@@ -9,38 +9,42 @@ import { ScrollView } from "react-native";
 
 const Home = ({ data }: any) => {
   const [weather, setWeather] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(false) 
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const GetDataWeather = async (lat: number, long: number ) => {
+  const GetDataWeather = async (lat: number, long: number) => {
     setLoading(true);
     const response = await WeatherData(lat, long);
     setWeather(response);
-    setLoading(false)
+    setLoading(false);
   };
 
   useEffect(() => {
-    if(data?.coords?.latitude !== undefined){
-    GetDataWeather(data.coords.latitude, data.coords.longitude);
-
+    if (data?.coords?.latitude !== undefined) {
+      GetDataWeather(data.coords.latitude, data.coords.longitude);
     }
   }, [data]);
 
   return (
     <>
-    {weather ?
-    <Container>
-      <ScrollView>
-      <Header date={data.timestamp} dataHeader={weather} />
-      <Main data={weather}  />
-      <ContainerButton>
-        <Button Loading={loading} onPress={() => GetDataWeather(data.coords.latitude, data.coords.longitude) } />
-      </ContainerButton>
-      </ScrollView>
-    </Container> 
-    : 
-    <Loading /> }
-   </>
-    
+      {weather ? (
+        <Container>
+          <ScrollView>
+            <Header date={data.timestamp} dataHeader={weather} />
+            <Main data={weather} />
+            <ContainerButton>
+              <Button
+                Loading={loading}
+                onPress={() =>
+                  GetDataWeather(data.coords.latitude, data.coords.longitude)
+                }
+              />
+            </ContainerButton>
+          </ScrollView>
+        </Container>
+      ) : (
+        <Loading />
+      )}
+    </>
   );
 };
 
