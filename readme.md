@@ -1,6 +1,4 @@
-## Resultado do Desafio
 
-![Abner Fonseca](https://github.com/afborda/Builder-Weather-App/blob/master/src/assets/img/image%202.png)
 
 
 ## Desafio proposto:
@@ -20,6 +18,10 @@ Open Weather Map.
 - `Styled-Components`
 
 - `Axios`
+
+- `Eslint`
+
+- `Prettier`
 
 ## Arquitetura
 
@@ -45,4 +47,14 @@ Open Weather Map.
 - `services` ( aqui se encontra todas as requisiçõesfeitas na aplicação dentro dela gosto de dividir de algumas formas como contexto, tipo de requisição, facilitando uma pessoa mais iniciantes entender o projeto e deixando claro onde se encontra tudo)
 
 - `theme` (Nesta pasta se encontra todo o tema da aplicação como cores, fontes e etc tudo que pode ser modificado de estilo.)
+
+## Como executar:
+
+`Abra o VsCode` > `Abra um terminal no VsCode` > e rode o seguinte comando: `yarn start`vai compilar a mostrar alguma opções para usuario selecione `i (para IOS)` ou `a (para Android)` 
+
+
+
+## Resultado do Desafio
+
+![Abner Fonseca](https://github.com/afborda/Builder-Weather-App/blob/master/src/assets/img/image%202.png)
 
