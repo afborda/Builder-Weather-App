@@ -1,5 +1,5 @@
 import React from "react";
-const LottieView = require("lottie-react-native");
+import LottieView from "lottie-react-native";
 
 // import { Container } from './styles';
 
