@@ -1,0 +1,53 @@
+---
+format_version: '11'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: react-native
+workflows:
+  deploy:
+    description: |
+      Tests the app and runs a build on Expo Application Services (EAS).
+
+      Next steps:
+      - Configure the `Run Expo Application Services (EAS) build` Step's `Access Token` input.
+      - Check out [Getting started with Expo apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-expo-apps.html).
+      - For an alternative deploy workflow checkout the [(React Native) Expo: Build using Turtle CLI recipe](https://github.com/bitrise-io/workflow-recipes/blob/main/recipes/rn-expo-turtle-build.md).
+    steps:
+    - git-clone@6: {}
+    - yarn@0:
+        inputs:
+        - command: install
+    - yarn@0:
+        inputs:
+        - command: test
+    - run-eas-build@0:
+        inputs:
+        - platform: "$PLATFORM"
+    - deploy-to-bitrise-io@2: {}
+  Happyflow:
+    description: |
+      Runs tests.
+
+      Next steps:
+      - Check out [Getting started with Expo apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-expo-apps.html).
+    steps:
+    - git-clone@6: {}
+    - yarn@0:
+        inputs:
+        - command: install
+    - yarn@0:
+        inputs:
+        - command: test
+    - deploy-to-bitrise-io@2: {}
+    - firebase-app-distribution@0:
+        inputs:
+        - groups: QA
+        - app: '816127383023'
+meta:
+  bitrise.io:
+    stack: osx-xcode-13.2.x
+    machine_type_id: g2.4core
+app:
+  envs:
+  - opts:
+      is_expand: false
+    PLATFORM: android
